@@ -253,8 +253,6 @@ main {
     .backSide {
       opacity: 1;
       transform: rotateY(0);
-      pointer-events: auto;
-      overflow-y: scroll;
     }
   }
   .backSide {
@@ -266,9 +264,8 @@ main {
     bottom: 0;
     opacity: 0;
     transition: all 0.5s;
+    overflow-y: hidden;
     transform: rotateY(180deg);
-    pointer-events: none;
-    overflow-y: scroll;
   }
   .backSide_header {
     padding: 5px;
