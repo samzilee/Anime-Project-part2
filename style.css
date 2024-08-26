@@ -54,9 +54,9 @@ button {
     color: rgb(0, 201, 0);
   }
 }
-.all_content {
-  overflow: scroll;
-}
+/* body {
+  overflow-y: hidden;
+} */
 
 header {
   display: flex;
@@ -198,11 +198,11 @@ main {
   background-color: var(--SideBar_NavigationBackground);
   height: 100%;
   perspective: 200px;
+  overflow-y: scroll;
   .main_content {
     padding: 5px;
     cursor: pointer;
     position: relative;
-
     .frontSide {
       width: 100%;
       transition: all 0.5s;
