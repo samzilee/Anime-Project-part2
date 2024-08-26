@@ -225,6 +225,7 @@ main {
     .backSide {
       opacity: 1;
       transform: rotateY(0);
+      pointer-events: auto;
     }
   }
   .backSide {
@@ -238,6 +239,7 @@ main {
     transition: all 0.5s;
     overflow-y: scroll;
     transform: rotateY(180deg);
+    pointer-events: none;
   }
   .backSide_header {
     padding: 5px;
@@ -249,7 +251,7 @@ main {
 
   .backSide_main {
     display: flex;
-
+    
     .animeDetails {
       background-color: var(--BackgroundColor);
       width: 100%;
