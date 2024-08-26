@@ -6,36 +6,71 @@ function main() {
   const mainContainer = document.querySelector(".main_container");
   const all_content = document.getElementById("all_content");
   const popover = document.getElementById("popover");
+  const popoverText = document.getElementById("popoverText");
+  const loading = document.getElementById("loading");
 
   btn.addEventListener("click", mainFetch);
-  all_content.addEventListener("keydown", keyy);
+  all_content.addEventListener("keydown", searchKey);
+
+  document.addEventListener("DOMContentLoaded", loader);
+
+  function loader() {
+    loading.setAttribute("class", "loading");
+  }
+  function removeLoader() {
+    loading.removeAttribute("class");
+  }
 
   let result = "";
   let IDedAnime = JSON.parse(localStorage.getItem("ids")) || [];
 
   let savedAnime = JSON.parse(localStorage.getItem("savedAnime")) || [];
 
-  function keyy(event) {
+  function searchKey(event) {
     if (event.key === "Enter") {
       mainFetch();
     }
   }
 
+  function checkNetwork() {
+    popover.style.height = "fit-content";
+    popover.style.width = "300px";
+    popover.style.opacity = "1";
+    popover.style.backgroundColor = "yellow";
+    popoverText.innerText = "Pls Check Your Network";
+    popoverText.style.color = "red";
+    function returnPop() {
+      popover.style.height = "0";
+      popover.style.width = "0";
+      popover.style.opacity = "0";
+    }
+    setTimeout(returnPop, 5000);
+  }
+
   async function firstMain() {
-    const response = await fetch(
-      `https://api.jikan.moe/v4/anime?q=one punch man&sfw`
-    );
-    const data = await response.json();
-    result = data.data;
-    mainFetch();
-    // console.log(result[0].mal_id);
+    try {
+      const response = await fetch(
+        `https://api.jikan.moe/v4/anime?q=one punch man&sfw`
+      );
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      result = data.data;
+      mainFetch();
+      removeLoader();
+    } catch (error) {
+      console.error(checkNetwork());
+    }
   }
   firstMain();
 
   async function mainFetch() {
     mainContainer.innerHTML = "";
+    const searched = search.value;
+    search.value = "";
     const response = await fetch(
-      `https://api.jikan.moe/v4/anime?q=${search.value}&sfw`
+      `https://api.jikan.moe/v4/anime?q=${searched}&sfw`
     );
     const data = await response.json();
     result = data.data;
@@ -105,7 +140,19 @@ function main() {
       if (IDedAnime.length !== null) {
         for (let i = 0; i <= IDedAnime.length - 1; i++) {
           if (IDedAnime[i] == id) {
-            alert("Anime is already saved.");
+            popover.style.height = "fit-content";
+            popover.style.width = "300px";
+            popover.style.opacity = "1";
+            popover.style.backgroundColor = "yellow";
+            popoverText.innerText = "Anime Already Added To List";
+            popoverText.style.color = "red";
+            function returnPop() {
+              popover.style.height = "0";
+              popover.style.width = "0";
+              popover.style.opacity = "0";
+            }
+            setTimeout(returnPop, 2000);
+
             return;
           }
         }
@@ -114,13 +161,15 @@ function main() {
       popover.style.height = "fit-content";
       popover.style.width = "300px";
       popover.style.opacity = "1";
+      popover.style.backgroundColor = "rgb(0, 201, 0)";
+      popoverText.innerText = "Anime has been Saved";
 
       function returnPop() {
         popover.style.height = "0";
         popover.style.width = "0";
         popover.style.opacity = "0";
       }
-      setTimeout(returnPop, 3000);
+      setTimeout(returnPop, 2000);
 
       IDedAnime.push(animeToAdd.mal_id);
       localStorage.setItem("ids", JSON.stringify(IDedAnime));
@@ -167,6 +216,23 @@ function main() {
 }
 
 function addanimeAside(array) {
+  const popover = document.getElementById("popover");
+  const popoverText = document.getElementById("popoverText");
+
+  popover.style.height = "fit-content";
+  popover.style.width = "300px";
+  popover.style.opacity = "1";
+  popover.style.backgroundColor = "red";
+  popoverText.style.color = "white";
+  popoverText.innerText = "Anime has been removed";
+
+  function returnPop() {
+    popover.style.height = "0";
+    popover.style.width = "0";
+    popover.style.opacity = "0";
+  }
+  setTimeout(returnPop, 2000);
+
   const asideMain = document.getElementById("asideMain");
   asideMain.innerHTML = "";
   array.map((anime, index) => {
