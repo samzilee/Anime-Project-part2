@@ -55,7 +55,7 @@ button {
   }
 }
 .all_content {
-  overflow: hidden;
+  overflow: scroll;
 }
 
 header {
