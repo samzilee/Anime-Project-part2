@@ -60,7 +60,8 @@ function main() {
       mainFetch();
       removeLoader();
     } catch (error) {
-      console.error(checkNetwork());
+      checkNetwork();
+      removeLoader();
     }
   }
   firstMain();
