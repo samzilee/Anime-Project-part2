@@ -169,7 +169,6 @@ function main() {
 function addanimeAside(array) {
   const asideMain = document.getElementById("asideMain");
   asideMain.innerHTML = "";
-  console.log(array);
   array.map((anime, index) => {
     asideMain.insertAdjacentHTML(
       "afterbegin",
