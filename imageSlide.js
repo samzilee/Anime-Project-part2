@@ -34,9 +34,11 @@ export const allSideShow = () => {
 
     let index = 1;
     const right = () => {
-      if (index <= 4) {
-        if (index === 4) {
-          return (nav_content.innerHTML = `<img src="${slideImages[4]}"/>`);
+      if (index <= animeNames.length - 1) {
+        if (index === animeNames.length - 1) {
+          return (nav_content.innerHTML = `<img src="${
+            slideImages[animeNames.length - 1]
+          }"/>`);
         }
         nav_content.innerHTML = `<img src="${slideImages[index++]}"/>`;
       } else {

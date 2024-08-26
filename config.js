@@ -3,14 +3,23 @@ const sideBar = document.getElementById("sideBar");
 const cancelSideBar = document.getElementById("cancelSideBar");
 const allContent = document.getElementById("all_content");
 
+let sideBarWidth = "";
 const showSideBar = () => {
   sideBar.style.width = "70%";
-  allContent.style.pointerEvents = "none";
+  sideBarWidth = sideBar.style.width;
+
+  setTimeout(() => {
+    if (sideBarWidth === "70%") {
+      allContent.addEventListener("click", cancleBar, { once: true });
+    }
+  }, 100);
 };
+
 const cancleBar = () => {
   sideBar.style.width = "0";
-  allContent.style.pointerEvents = "";
+  return (sideBarWidth = "0");
 };
+
 sideMenu.addEventListener("click", showSideBar);
 cancelSideBar.addEventListener("click", cancleBar);
 

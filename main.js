@@ -34,11 +34,11 @@ function main() {
 
   function checkNetwork() {
     popover.style.height = "fit-content";
-    popover.style.width = "300px";
+    popover.style.width = "250px";
     popover.style.opacity = "1";
-    popover.style.backgroundColor = "yellow";
+    popover.style.backgroundColor = "red";
     popoverText.innerText = "Pls Check Your Network";
-    popoverText.style.color = "red";
+    popoverText.style.color = "white";
     function returnPop() {
       popover.style.height = "0";
       popover.style.width = "0";
@@ -69,7 +69,6 @@ function main() {
   async function mainFetch() {
     mainContainer.innerHTML = "";
     const searched = search.value;
-    search.value = "";
     const response = await fetch(
       `https://api.jikan.moe/v4/anime?q=${searched}&sfw`
     );
@@ -142,11 +141,11 @@ function main() {
         for (let i = 0; i <= IDedAnime.length - 1; i++) {
           if (IDedAnime[i] == id) {
             popover.style.height = "fit-content";
-            popover.style.width = "300px";
+            popover.style.width = "250px";
             popover.style.opacity = "1";
             popover.style.backgroundColor = "yellow";
             popoverText.innerText = "Anime Already Added To List";
-            popoverText.style.color = "red";
+            popoverText.style.color = "orange";
             function returnPop() {
               popover.style.height = "0";
               popover.style.width = "0";
@@ -160,7 +159,7 @@ function main() {
       }
 
       popover.style.height = "fit-content";
-      popover.style.width = "300px";
+      popover.style.width = "250px";
       popover.style.opacity = "1";
       popover.style.backgroundColor = "rgb(0, 201, 0)";
       popoverText.innerText = "Anime has been Saved";
@@ -200,12 +199,20 @@ function main() {
                 <button id="${anime.title}">Remove From List</button>
                 <details>
                   <summary>Details</summary>
-                  <p>rating: <span>${anime.rating}</span></p>
-                  <p>duration: <span>${anime.duration}</span></p>
+                  <p>Rating: <span>${anime.rating}</span></p>
+                  <p>Duration: <span>${anime.duration}</span></p>
                   <p>Episodes: <span>${anime.episodes}</span></p>
-                  <p>status: <span>${anime.status}</span></p>
-                  <p>type: <span>${anime.type}</span></p>
+                  <p>Status: <span>${anime.status}</span></p>
+                  <p>Type: <span>${anime.type}</span></p>
                 </details>
+
+              <div class="pc_version_anime_details">
+                <p>Rating: <span>${anime.rating}</span></p>
+                <p>Duration: <span>${anime.duration}</span></p>
+                <p>Episodes: <span>${anime.episodes}</span></p>
+                <p>Status: <span>${anime.status}</span></p>
+                <p>Rype: <span>${anime.type}</span></p>
+              </div>
               </div>
             </div>
             `
@@ -221,7 +228,7 @@ function addanimeAside(array) {
   const popoverText = document.getElementById("popoverText");
 
   popover.style.height = "fit-content";
-  popover.style.width = "300px";
+  popover.style.width = "250px";
   popover.style.opacity = "1";
   popover.style.backgroundColor = "red";
   popoverText.style.color = "white";
@@ -249,12 +256,19 @@ function addanimeAside(array) {
               <button id="${anime.title}">Remove From List</button>
               <details>
                 <summary>Details</summary>
-                <p>rating: <span>${anime.rating}</span></p>
-                <p>duration: <span>${anime.duration}</span></p>
+                <p>Rating: <span>${anime.rating}</span></p>
+                <p>Duration: <span>${anime.duration}</span></p>
                 <p>Episodes: <span>${anime.episodes}</span></p>
-                <p>status: <span>${anime.status}</span></p>
-                <p>type: <span>${anime.type}</span></p>
+                <p>Status: <span>${anime.status}</span></p>
+                <p>Type: <span>${anime.type}</span></p>
               </details>
+               <div class="pc_version_anime_details">
+                <p>Rating: <span>${anime.rating}</span></p>
+                <p>Duration: <span>${anime.duration}</span></p>
+                <p>Episodes: <span>${anime.episodes}</span></p>
+                <p>Status: <span>${anime.status}</span></p>
+                <p>Type: <span>${anime.type}</span></p>
+            </div>
             </div>
           </div>
           `
