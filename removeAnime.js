@@ -26,9 +26,10 @@ export function removeAnime() {
 
     newSavedAnime = savedAnime.filter((anime, index) => index !== id);
 
-    localStorage.setItem("savedAnime", JSON.stringify(newSavedAnime));
+    localStorage.setItem("savedAnime", JSON.stringify(newSavedAnime)) || [];
 
-    newAnimeSavedIds = animeSavedIds.filter((value, index) => index !== id);
+    newAnimeSavedIds =
+      animeSavedIds.filter((value, index) => index !== id) || [];
 
     localStorage.setItem("ids", JSON.stringify(newAnimeSavedIds));
 
