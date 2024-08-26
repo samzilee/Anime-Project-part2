@@ -38,7 +38,7 @@ function main() {
     popover.style.opacity = "1";
     popover.style.backgroundColor = "red";
     popoverText.innerText = "Pls Check Your Network";
-    popoverText.style.color = "white";
+    popover.style.color = "white";
     function returnPop() {
       popover.style.height = "0";
       popover.style.width = "0";
@@ -136,9 +136,8 @@ function main() {
             popover.style.height = "fit-content";
             popover.style.width = "250px";
             popover.style.opacity = "1";
-            popover.style.backgroundColor = "yellow";
+            popover.style.backgroundColor = "red";
             popoverText.innerText = "Anime Already Added To List";
-            popoverText.style.color = "orange";
             function returnPop() {
               popover.style.height = "0";
               popover.style.width = "0";
@@ -155,6 +154,7 @@ function main() {
       popover.style.width = "250px";
       popover.style.opacity = "1";
       popover.style.backgroundColor = "rgb(0, 201, 0)";
+      popover.style.color = "white";
       popoverText.innerText = "Anime has been Saved";
 
       function returnPop() {
@@ -224,7 +224,7 @@ function addanimeAside(array) {
   popover.style.width = "250px";
   popover.style.opacity = "1";
   popover.style.backgroundColor = "red";
-  popoverText.style.color = "white";
+  popover.style.color = "white";
   popoverText.innerText = "Anime has been removed";
 
   function returnPop() {

@@ -38,7 +38,6 @@ button {
   top: 0;
   right: 0;
   z-index: 2000;
-  color: var(--TextColor);
   text-align: center;
   border-radius: 20px;
   padding: 5px;
