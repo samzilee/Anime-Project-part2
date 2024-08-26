@@ -1,12 +1,12 @@
 export const allSideShow = () => {
-  let slideImages = [
-    // "images/cyberpunk_2077_phantom_liberty_katana-wallpaper-1920x1080.jpg",
-    // "images/final_fantasy_vii_rebirth_2024_video_game-wallpaper-1920x1080.jpg",
-    // "images/spider_man_14-wallpaper-1920x1080.jpg",
-    // "images/god_of_war_ragnarok_game-wallpaper-1920x1080.jpg",
-    // "images/rick_and_morty_car_rainbow-wallpaper-1920x1080.jpg",
+  let slideImages = [];
+  let animeNames = [
+    "naruto",
+    "hXh",
+    "dragon ball",
+    "demon slayer",
+    "one punch man",
   ];
-  let animeNames = ["naruto", "bleach", "hXh", "dragon ball", "demon slayer"];
 
   let delay = 1000;
   animeNames.forEach((names) => {

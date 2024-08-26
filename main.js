@@ -75,8 +75,6 @@ function main() {
     const data = await response.json();
     result = data.data;
 
-    // console.log(result);
-
     result.map((anime) => {
       mainContainer.insertAdjacentHTML(
         "beforeend",
@@ -128,11 +126,6 @@ function main() {
 
     function saveAnime(id) {
       const animeToAdd = result.find((anime) => anime.mal_id == id);
-
-      // if (IDedAnime.some((value) => value === id)) {
-      //   alert("Anime is already saved.");
-      //   return;
-      // }
 
       IDedAnime = JSON.parse(localStorage.getItem("ids")) || [];
       savedAnime = JSON.parse(localStorage.getItem("savedAnime")) || [];
