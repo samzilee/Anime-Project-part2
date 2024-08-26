@@ -102,10 +102,12 @@ function main() {
       IDedAnime = JSON.parse(localStorage.getItem("ids")) || [];
       savedAnime = JSON.parse(localStorage.getItem("savedAnime")) || [];
 
-      for (let i = 0; i <= IDedAnime.length - 1; i++) {
-        if (IDedAnime[i] == id) {
-          alert("Anime is already saved.");
-          return;
+      if (IDedAnime.length !== null) {
+        for (let i = 0; i <= IDedAnime.length - 1; i++) {
+          if (IDedAnime[i] == id) {
+            alert("Anime is already saved.");
+            return;
+          }
         }
       }
 
